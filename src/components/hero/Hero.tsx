@@ -3,9 +3,10 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] overflow-hidden">
+    // Add pt-20 to account for navbar height
+    <div className="relative min-h-screen pt-20 bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] overflow-hidden">
       {/* Ambient background effects */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 top-20"> {/* Adjust top to match navbar */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_50%)]" />
         </div>
@@ -13,13 +14,13 @@ export default function Hero() {
       </div>
 
       {/* Floating accent elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 top-20 overflow-hidden"> {/* Adjust top to match navbar */}
         <div className="absolute -top-4 left-1/4 w-64 h-64 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 blur-3xl animate-aurora" />
         <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-3xl animate-aurora delay-1000" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-5rem)]"> {/* Adjust height to account for navbar */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center py-12"> {/* Add padding for better spacing */}
           {/* Content section */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
@@ -49,8 +50,8 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Animated visualization */}
-          <div className="relative h-full flex items-center justify-center">
+          {/* Animated visualization - Hide on mobile for better UX */}
+          <div className="relative h-full hidden lg:flex items-center justify-center">
             <div className="relative w-[500px] h-[500px]">
               {/* Core orb */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -103,7 +104,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <style jsx>{`
+       <style jsx>{`
         @keyframes aurora {
           0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
           50% { transform: translate(-10px, 10px) scale(1.1); opacity: 0.7; }
@@ -140,10 +141,6 @@ export default function Hero() {
         .animate-spin-slow { animation: spin-slow 30s linear infinite; }
         .animate-spin-reverse-slow { animation: spin-reverse-slow 20s linear infinite; }
         .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
-        .delay-300 { animation-delay: 300ms; }
-        .delay-500 { animation-delay: 500ms; }
-        .delay-700 { animation-delay: 700ms; }
-        .delay-1000 { animation-delay: 1000ms; }
       `}</style>
     </div>
   );

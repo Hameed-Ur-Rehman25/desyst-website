@@ -13,7 +13,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#0f051d_100%)] py-24 overflow-hidden">
+    <section id="projects" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#0f051d_100%)] py-24 overflow-hidden">
       {/* Grid Pattern */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:14px_14px] opacity-40" />
       

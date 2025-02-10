@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#020108_100%)] px-4 py-16 sm:py-24 overflow-hidden">
+    <section id = "contact" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#020108_100%)] px-4 py-16 sm:py-24 overflow-hidden">
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />

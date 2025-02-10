@@ -15,7 +15,7 @@ const getIcon = (iconName: string) => {
 
 export default function Services() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 py-24 overflow-hidden">
+    <section id="services" className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 py-24 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_1px,transparent_1px)] [background-size:32px_32px] opacity-30" />
@@ -117,6 +117,6 @@ export default function Services() {
         }
         .animation-delay-2000 { animation-delay: 2s; }
       `}</style>
-    </div>
+    </section>
   );
 }

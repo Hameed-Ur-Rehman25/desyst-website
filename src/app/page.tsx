@@ -8,13 +8,13 @@ import Contact from '@/components/contact/ContactForm';
 
 export default function Home() {
   return (
-    <main>
+    <section id = "home">
       <Navbar />
       <Hero />
       <Services />
       <Projects />
       <Team />
       <Contact />
-    </main>
+    </section>
   );
 }
