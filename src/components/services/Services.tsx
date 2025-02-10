@@ -1,117 +1,122 @@
 'use client';
 import React from 'react';
 import { Shield, Cloud, Cpu, BarChart } from 'lucide-react';
-
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-  features: string[];
-}
-
-const services: Service[] = [
-  {
-    id: 'ai-automation',
-    title: 'AI Automation',
-    description: 'Intelligent automation solutions powered by advanced AI algorithms',
-    icon: 'cpu',
-    features: ['Workflow Automation', 'Predictive Analytics', 'Smart Decisions']
-  },
-  {
-    id: 'cloud-solutions',
-    title: 'Cloud Integration',
-    description: 'Seamless cloud infrastructure and deployment services',
-    icon: 'cloud',
-    features: ['Cloud Migration', 'Scalable Infrastructure', 'High Availability']
-  },
-  {
-    id: 'data-analytics',
-    title: 'Data Analytics',
-    description: 'Transform raw data into actionable business insights',
-    icon: 'bar-chart',
-    features: ['Real-time Analytics', 'Data Visualization', 'Business Intelligence']
-  },
-  {
-    id: 'security',
-    title: 'Cyber Security',
-    description: 'Enterprise-grade security solutions for digital assets',
-    icon: 'shield',
-    features: ['Threat Detection', 'Data Protection', 'Security Audits']
-  }
-];
+import { services } from '@/data/service-data';
 
 const getIcon = (iconName: string) => {
-  switch (iconName) {
-    case 'shield': return <Shield className="w-6 h-6" />;
-    case 'cloud': return <Cloud className="w-6 h-6" />;
-    case 'cpu': return <Cpu className="w-6 h-6" />;
-    case 'bar-chart': return <BarChart className="w-6 h-6" />;
-    default: return null;
-  }
+  const icons = {
+    shield: <Shield className="w-7 h-7" />,
+    cloud: <Cloud className="w-7 h-7" />,
+    cpu: <Cpu className="w-7 h-7" />,
+    'bar-chart': <BarChart className="w-7 h-7" />
+  };
+  return icons[iconName as keyof typeof icons] || null;
 };
 
 export default function Services() {
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Our Services</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Transform Your Business
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Comprehensive digital solutions to drive your business forward
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 py-24 overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_1px,transparent_1px)] [background-size:32px_32px] opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 to-transparent">
+          <div className="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-indigo-500/10 blur-3xl" />
+        </div>
+      </div>
+
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute top-1/3 right-1/2 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-float-slow animation-delay-2000" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header section with animation */}
+        <div className="mx-auto max-w-3xl text-center animate-fade-in">
+          <div className="inline-flex items-center space-x-2 rounded-full bg-white/5 px-4 py-1 ring-1 ring-white/10 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+            <span className="text-sm font-medium text-indigo-400">Innovative Solutions</span>
+          </div>
+          
+          <h1 className="mt-8 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Enterprise Solutions
+            <span className="block mt-2 bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
+              Engineered for Tomorrow
+            </span>
+          </h1>
+          
+          <p className="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto">
+            Experience next-generation technology solutions designed to transform your business operations and drive innovation.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-2">
-          {services.map((service) => (
+        {/* Services grid with staggered animation */}
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-2">
+          {services.map((service, index) => (
             <div
               key={service.id}
-              className="group relative isolate flex flex-col justify-between rounded-2xl bg-white px-8 py-10 border border-gray-200 hover:border-indigo-600/20 transition-colors duration-300"
+              className="group relative flex flex-col rounded-3xl bg-white/5 backdrop-blur-sm p-8 ring-1 ring-white/10 hover:ring-indigo-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/10 animate-fade-up"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-50/50 opacity-0 transition group-hover:opacity-100 rounded-2xl" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 via-violet-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
-              <div>
-                <div className="flex items-center gap-x-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600/5 group-hover:bg-indigo-600/10 transition-colors">
+              <div className="flex items-center gap-x-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/10 via-violet-500/10 to-purple-500/10 group-hover:from-indigo-500/20 group-hover:via-violet-500/20 group-hover:to-purple-500/20 transition-colors duration-500">
+                  <div className="text-indigo-400 group-hover:text-indigo-300 transition-colors duration-500">
                     {getIcon(service.icon)}
-                  </span>
-                  <h3 className="text-xl font-semibold leading-7 tracking-tight text-gray-900">
-                    {service.title}
-                  </h3>
+                  </div>
                 </div>
-                <p className="mt-4 text-base leading-7 text-gray-600">
-                  {service.description}
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-x-3 text-sm leading-6 text-gray-600">
-                      <svg className="h-1.5 w-1.5 fill-indigo-600" viewBox="0 0 6 6" aria-hidden="true">
-                        <circle cx="3" cy="3" r="3" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-xl font-semibold text-white tracking-tight group-hover:text-indigo-300 transition-colors duration-500">
+                  {service.title}
+                </h3>
               </div>
 
-              <div className="mt-8 flex items-center gap-x-3">
-                <button className="text-sm font-semibold leading-6 text-indigo-600 group-hover:text-indigo-500">
-                  Learn more
-                  <span className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>
-                </button>
+              <p className="mt-4 text-base text-gray-300 leading-relaxed">
+                {service.description}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {service.features.map((feature) => (
+                  <span
+                    key={feature}
+                    className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-300 group-hover:bg-indigo-500/20 transition-colors duration-300"
+                  >
+                    {feature}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
         </div>
       </div>
-      
-      {/* Background decorative elements */}
-      <div className="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl">
-        <div className="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25" />
-      </div>
+
+      <style jsx>{`
+        @keyframes float-slow {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(-10px, 10px) scale(1.05); }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-float-slow { animation: float-slow 15s infinite; }
+        .animate-fade-in { animation: fade-in 1s ease-out forwards; }
+        .animate-fade-up { animation: fade-up 1s ease-out forwards; }
+        .animate-gradient { 
+          background-size: 200% auto;
+          animation: gradient 8s linear infinite;
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+      `}</style>
     </div>
   );
 }
