@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar/Navbar';
 import Services from '@/components/services/Services';
 import Projects from '@/components/projects/Project';
 import Team from '@/components/team/Team';
+import Contact from '@/components/contact/ContactForm';
+
 export default function Home() {
   return (
     <main>
@@ -12,6 +14,7 @@ export default function Home() {
       <Services />
       <Projects />
       <Team />
+      <Contact />
     </main>
   );
 }
