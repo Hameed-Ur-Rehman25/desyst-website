@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Twitter } from 'lucide-react';
@@ -15,7 +14,7 @@ const SocialLink = ({ href, icon: Icon }: SocialLinkProps) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="group relative p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300"
+    className="group relative z-10 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer"
   >
     <Icon className="w-5 h-5 text-violet-400 group-hover:text-violet-300 transition-colors" />
   </a>
@@ -30,22 +29,22 @@ export default function Team() {
 
   return (
     <section id="team" className="relative min-h-screen bg-[radial-gradient(ellipse_at_center,#2a1458_0%,#0f051d_100%)] py-24 overflow-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="absolute inset-0">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:14px_14px] opacity-30" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
       </div>
 
       {/* Dynamic Orbs */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl animate-float-slow" />
         <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl animate-float-reverse" />
         <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl animate-float-slow delay-1000" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Enhanced Header */}
+        {/* Header */}
         <div className={`mx-auto max-w-3xl text-center mb-24 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center space-x-2 rounded-full bg-white/5 px-4 py-1 ring-1 ring-white/10 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
@@ -70,7 +69,7 @@ export default function Team() {
           </h2>
         </div>
 
-        {/* Enhanced Team Grid */}
+        {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {team.map((member, index) => (
             <div
@@ -78,20 +77,20 @@ export default function Team() {
               className={`group relative rounded-3xl bg-white/5 backdrop-blur-xl p-8 ring-1 ring-white/10 hover:ring-violet-500/50 transition-all duration-700 hover:-translate-y-2 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Enhanced Image Container */}
+              {/* Image Container */}
               <div className="relative w-32 h-32 mx-auto mb-6">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 animate-pulse-slow blur-sm" />
                 <div className="absolute inset-1 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600" />
                 <Image
                   src={member.image}
                   alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full p-[2px]"
+                  width={128}
+                  height={128}
+                  className="rounded-full p-[2px] relative"
                 />
               </div>
 
-              {/* Enhanced Content */}
+              {/* Content */}
               <div className="text-center space-y-3">
                 <h3 className="text-xl font-semibold text-white group-hover:text-violet-400 transition-colors">
                   {member.name}
@@ -103,16 +102,16 @@ export default function Team() {
                 </div>
                 <p className="text-sm text-gray-300 leading-relaxed">{member.bio}</p>
 
-                {/* Enhanced Social Links */}
-                <div className="flex justify-center items-center gap-3 pt-4">
+                {/* Social Links */}
+                <div className="flex justify-center items-center gap-3 pt-4 relative z-10">
                   <SocialLink href={member.social.github} icon={Github} />
                   <SocialLink href={member.social.linkedin} icon={Linkedin} />
                   <SocialLink href={member.social.twitter} icon={Twitter} />
                 </div>
               </div>
 
-              {/* Enhanced Hover Effects */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/5 via-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              {/* Hover Effects */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/5 via-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
             </div>
           ))}
         </div>

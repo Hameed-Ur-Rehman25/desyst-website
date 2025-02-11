@@ -1,5 +1,3 @@
-// data/team-data.ts
-
 export interface TeamMember {
   id: number;
   name: string;
@@ -21,9 +19,9 @@ export const team: TeamMember[] = [
     image: '/api/placeholder/400/400',
     bio: 'AI researcher with 10+ years experience in deep learning and neural networks.',
     social: {
-      github: '#',
-      linkedin: '#',
-      twitter: '#'
+      github: 'https://github.com/alexchen',
+      linkedin: 'https://linkedin.com/in/alexchen',
+      twitter: 'https://twitter.com/alexchen'
     }
   },
   {
@@ -33,9 +31,9 @@ export const team: TeamMember[] = [
     image: '/api/placeholder/400/400',
     bio: 'Quantum computing expert specialized in quantum algorithms and optimization.',
     social: {
-      github: '#',
-      linkedin: '#',
-      twitter: '#'
+      github: 'https://github.com/sarahjohnson',
+      linkedin: 'https://linkedin.com/in/sarahjohnson',
+      twitter: 'https://twitter.com/sarahjohnson'
     }
   },
   {
@@ -45,9 +43,9 @@ export const team: TeamMember[] = [
     image: '/api/placeholder/400/400',
     bio: 'Full-stack developer focused on scalable cloud architectures and ML pipelines.',
     social: {
-      github: '#',
-      linkedin: '#',
-      twitter: '#'
+      github: 'https://github.com/michaelpark',
+      linkedin: 'https://linkedin.com/in/michaelpark',
+      twitter: 'https://twitter.com/michaelpark'
     }
   }
 ];
