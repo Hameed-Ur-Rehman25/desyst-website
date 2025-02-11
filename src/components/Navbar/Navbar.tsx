@@ -40,7 +40,7 @@ export default function Navbar() {
                 z-50
               `}
             >
-              Desyst
+              desyst
             </Link>
 
             <DesktopNav menuItems={menuItems} scrolled={scrolled} />
