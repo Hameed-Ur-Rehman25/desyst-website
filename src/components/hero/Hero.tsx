@@ -1,7 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Hero() {
+  const [count, setCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  
+  // Mount animation
+  useEffect(() => {
+    setMounted(true);
+    
+    // Counter animation
+    const interval = setInterval(() => {
+      setCount(prevCount => {
+        if (prevCount < 100) {
+          return prevCount + 1;
+        } else {
+          clearInterval(interval);
+          return prevCount;
+        }
+      });
+    }, 30);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToServices = () => {
     const servicesSection = document.querySelector('#services');
     if (servicesSection) {
@@ -33,25 +55,27 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-5rem)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center py-8 md:py-12">
           {/* Content section */}
-          <div className="relative z-20 space-y-6 md:space-y-8 text-center lg:text-left animate-fade-in">
-            <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-lg rounded-full px-4 py-2 border border-white/10">
+          <div className="relative z-20 space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className={`inline-flex items-center space-x-2 bg-white/5 backdrop-blur-lg rounded-full px-4 py-2 border border-white/10 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
               <span className="w-2 h-2 bg-violet-400 rounded-full animate-glow"></span>
               <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">DeSyst</span>
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-none">
-              <span className="text-white">Simplify Your</span>
-              <span className="block mt-2 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
+            <h1 className="font-bold tracking-tight leading-none space-y-2">
+              <span className={`block text-3xl md:text-5xl lg:text-7xl text-white transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'} animate-bounce-in`}>
+                Simplify Your
+              </span>
+              <span className={`block text-3xl md:text-5xl lg:text-7xl mt-2 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent animate-gradient transition-all duration-700 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'} animate-bounce-in-delayed`}>
                 Digital Future
               </span>
             </h1>
             
-            <p className="text-base md:text-lg text-slate-300/90 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+            <p className={`text-base md:text-lg text-slate-300/90 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
               Transform your workflow with AI-powered solutions designed for tomorrow&apos;s challenges.
             </p>
 
             {/* Button container with explicit z-index */}
-            <div className="relative z-20 flex justify-center lg:justify-start space-x-4">
+            <div className={`relative z-20 flex justify-center lg:justify-start space-x-4 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
               <button 
                 onClick={scrollToServices}
                 className="relative z-20 group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-xl text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-violet-500/25 cursor-pointer"
@@ -66,8 +90,38 @@ export default function Hero() {
               </button>
             </div>
 
+            {/* Projects Counter - Even More Compact Version */}
+            <div className={`mt-6 relative transition-all duration-700 delay-400 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+              {/* Subtle glowing background */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600/10 to-fuchsia-600/10 rounded-lg blur-lg opacity-80" />
+              
+              {/* Compact container */}
+              <div className="relative inline-flex items-center rounded-lg overflow-hidden">
+                {/* Background with frosted glass effect */}
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg" />
+                
+                {/* Content */}
+                <div className="relative flex items-center py-2 px-3">
+                  {/* Counter */}
+                  <span className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                    {count}<span className="text-2xl">+</span>
+                  </span>
+                  
+                  <span className="ml-1 text-sm font-medium text-white/80">Projects</span>
+                  
+                  {/* Separator */}
+                  <div className="h-6 w-px mx-2 bg-gradient-to-b from-violet-500/20 via-fuchsia-500/30 to-indigo-500/20" />
+                  
+                  {/* Description - Single line for maximum compactness */}
+                  <div>
+                    <span className="text-xs text-white/80">Successfully delivered <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent font-medium">worldwide</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Mobile-only visualization */}
-            <div className="block lg:hidden mt-8">
+            <div className={`block lg:hidden mt-8 transition-all duration-700 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
               <div className="relative mx-auto w-64 h-64 sm:w-72 sm:h-72">
                 <svg className="w-full h-full" viewBox="0 0 300 300">
                   <defs>
@@ -107,7 +161,7 @@ export default function Hero() {
           </div>
 
           {/* Desktop Animation - Unchanged */}
-           <div className="relative z-0 h-full hidden lg:flex items-center justify-center">
+           <div className={`relative z-0 h-full hidden lg:flex items-center justify-center transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
             <div className="relative w-[500px] h-[500px] animate-float">
               {/* Main hexagon grid */}
               <div className="absolute inset-0">
@@ -192,6 +246,19 @@ export default function Hero() {
           0%, 100% { opacity: 0.4; }
           50% { opacity: 0.8; }
         }
+        @keyframes bounce-in {
+          0% { transform: translateY(-20px); opacity: 0; }
+          50% { transform: translateY(10px); opacity: 0.7; }
+          75% { transform: translateY(-5px); opacity: 0.9; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounce-in-delayed {
+          0% { transform: translateY(-20px); opacity: 0; }
+          20% { transform: translateY(-20px); opacity: 0; }
+          70% { transform: translateY(10px); opacity: 0.7; }
+          85% { transform: translateY(-5px); opacity: 0.9; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
         .animate-aurora { animation: aurora 10s ease-in-out infinite; }
         .animate-fade-in { animation: fade-in 1.5s ease-out forwards; }
         .animate-gradient { background-size: 200% auto; animation: gradient 8s linear infinite; }
@@ -202,6 +269,8 @@ export default function Hero() {
         .animate-float-delay-2 { animation: float-delay-2 7s ease-in-out infinite; }
         .animate-float-delay-3 { animation: float-delay-3 6s ease-in-out infinite; }
         .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+        .animate-bounce-in { animation: bounce-in 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        .animate-bounce-in-delayed { animation: bounce-in-delayed 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
       `}</style>
     </div>
   );
