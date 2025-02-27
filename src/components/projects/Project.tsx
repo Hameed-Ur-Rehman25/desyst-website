@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data/project-data';
+import React from 'react';
 
 export default function Projects() {
   const [mounted, setMounted] = useState(false);

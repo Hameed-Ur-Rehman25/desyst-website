@@ -1,17 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
+    domains: ['placehold.co'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
       },
     ],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-}
+  // Fix module resolution for 'desyst-website' local dependency
+  webpack: (config) => {
+    // Add a rule to handle the circular dependency
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'desyst-website': false, // Ignore the circular dependency
+    };
+    return config;
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

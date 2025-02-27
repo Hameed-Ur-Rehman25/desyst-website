@@ -3,12 +3,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Your Startup',
-  description: 'Your startup description',
+  title: 'DeSyst - Digital Solutions for Tomorrow',
+  description: 'Transform your workflow with AI-powered solutions designed for tomorrow\'s challenges',
 };
 
 export default function RootLayout({
