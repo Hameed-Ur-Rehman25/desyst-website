@@ -6,7 +6,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'DeSyst - Digital Solutions for Tomorrow',
+  title: 'knevaTech - Digital Solutions for Tomorrow',
   description: 'Transform your workflow with AI-powered solutions designed for tomorrow\'s challenges',
 };
 

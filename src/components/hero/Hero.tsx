@@ -58,7 +58,7 @@ export default function Hero() {
           <div className="relative z-20 space-y-6 md:space-y-8 text-center lg:text-left">
             <div className={`inline-flex items-center space-x-2 bg-white/5 backdrop-blur-lg rounded-full px-4 py-2 border border-white/10 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
               <span className="w-2 h-2 bg-violet-400 rounded-full animate-glow"></span>
-              <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">DeSyst</span>
+              <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">knevaTech</span>
             </div>
             
             <h1 className="font-bold tracking-tight leading-none space-y-2">
