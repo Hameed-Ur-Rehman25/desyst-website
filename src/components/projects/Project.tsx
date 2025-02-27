@@ -12,6 +12,11 @@ export default function Projects() {
     setMounted(true);
   }, []);
 
+  // Helper function to determine if image is external
+  const isExternalImage = (src: string) => {
+    return src?.startsWith('http://') || src?.startsWith('https://');
+  };
+
   return (
     <section id="projects" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#0f051d_100%)] py-24 overflow-hidden">
       {/* Grid Pattern */}
@@ -63,13 +68,34 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-700 group-hover:scale-110"
-                />
+                {project.image ? (
+                  isExternalImage(project.image) ? (
+                    // External image (URL)
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    // Local image from public folder
+                    <Image
+                      src={`/${project.image}`}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )
+                ) : (
+                  // Gradient placeholder for projects without images
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-900/60 to-indigo-900/60 transition-transform duration-700 group-hover:scale-110">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-6xl font-bold text-white/30">{project.title[0]}</span>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               </div>
 

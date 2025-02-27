@@ -13,8 +13,8 @@ export default function Home() {
       <Hero />
       <Services />
       <Projects />
-      <Team />
-      <Contact />
+      {/* <Team />
+      <Contact /> */}
     </section>
   );
 }

@@ -16,7 +16,7 @@ export const team: TeamMember[] = [
     id: 1,
     name: 'Alex Chen',
     role: 'Founder & CEO',
-    image: '/api/placeholder/400/400',
+    image: 'https://placehold.co/400x400',
     bio: 'AI researcher with 10+ years experience in deep learning and neural networks.',
     social: {
       github: 'https://github.com/alexchen',
@@ -28,7 +28,7 @@ export const team: TeamMember[] = [
     id: 2,
     name: 'Sarah Johnson',
     role: 'CTO',
-    image: '/api/placeholder/400/400',
+    image: 'https://placehold.co/400x400',
     bio: 'Quantum computing expert specialized in quantum algorithms and optimization.',
     social: {
       github: 'https://github.com/sarahjohnson',
@@ -40,7 +40,7 @@ export const team: TeamMember[] = [
     id: 3,
     name: 'Michael Park',
     role: 'Lead Engineer',
-    image: '/api/placeholder/400/400',
+    image: 'https://placehold.co/400x400',
     bio: 'Full-stack developer focused on scalable cloud architectures and ML pipelines.',
     social: {
       github: 'https://github.com/michaelpark',

@@ -7,7 +7,7 @@ export interface Project {
   tech: string[];
   link: string;
   github: string;
-  image: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
@@ -18,7 +18,7 @@ export const projects: Project[] = [
     tech: ['TensorFlow', 'Python', 'React', 'AWS'],
     link: '#',
     github: '#',
-    image: '/api/placeholder/800/600'
+    image: 'vercel.svg'
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     tech: ['Q#', 'Python', 'TypeScript', 'Azure'],
     link: '#',
     github: '#',
-    image: '/api/placeholder/800/600'
+    image: 'https://placehold.co/800x600'
   },
   {
     id: 3,
@@ -35,7 +35,6 @@ export const projects: Project[] = [
     description: 'Cutting-edge neural network development platform for advanced AI research and applications.',
     tech: ['PyTorch', 'CUDA', 'React', 'Docker'],
     link: '#',
-    github: '#',
-    image: '/api/placeholder/800/600'
+    github: '#'
   }
 ];

@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section id = "contact" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#020108_100%)] px-4 py-16 sm:py-24 overflow-hidden">
+    <section id="contact" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,#1a0b2e_0%,#020108_100%)] px-4 py-16 sm:py-24 overflow-hidden">
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
@@ -141,8 +141,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Enhanced Contact Info Section */}
-          <div className={`space-y-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          {/* Enhanced Contact Info Section - Hidden on mobile, visible on desktop */}
+          <div className={`hidden lg:block space-y-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#4f3b99] to-[#3b4999] rounded-2xl blur-xl opacity-20" />
               <div className="relative rounded-2xl bg-[#ffffff08] p-6 sm:p-8 shadow-xl shadow-black/10 backdrop-blur-xl">
@@ -190,6 +190,29 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Add styles for animations */}
+      <style jsx>{`
+        @keyframes aurora {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+          50% { transform: translate(-10px, 10px) scale(1.1); opacity: 0.7; }
+        }
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.8; }
+        }
+        .animate-aurora { animation: aurora 10s ease-in-out infinite; }
+        .animate-gradient { 
+          background-size: 200% auto; 
+          animation: gradient 8s linear infinite; 
+        }
+        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+      `}</style>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import { team } from '@/data/team-data';
 
@@ -26,6 +25,11 @@ export default function Team() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Helper function to get initials from name
+  const getInitials = (name: string) => {
+    return name.split(' ').map(part => part[0]).join('');
+  };
 
   return (
     <section id="team" className="relative min-h-screen bg-[radial-gradient(ellipse_at_center,#2a1458_0%,#0f051d_100%)] py-24 overflow-hidden">
@@ -77,17 +81,19 @@ export default function Team() {
               className={`group relative rounded-3xl bg-white/5 backdrop-blur-xl p-8 ring-1 ring-white/10 hover:ring-violet-500/50 transition-all duration-700 hover:-translate-y-2 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Image Container */}
+              {/* Image Container - Using gradient avatar with initials */}
               <div className="relative w-32 h-32 mx-auto mb-6">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 animate-pulse-slow blur-sm" />
                 <div className="absolute inset-1 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600" />
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={128}
-                  height={128}
-                  className="rounded-full p-[2px] relative"
-                />
+                
+                {/* Display initials in circle */}
+                <div className="absolute inset-0 flex items-center justify-center rounded-full p-[2px]">
+                  <div className="w-full h-full rounded-full bg-violet-900/50 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white/70">
+                      {getInitials(member.name)}
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Content */}
