@@ -47,5 +47,17 @@ export const team: TeamMember[] = [
       linkedin: 'https://linkedin.com/in/michaelpark',
       twitter: 'https://twitter.com/michaelpark'
     }
+  },
+    {
+    id: 4,
+    name: 'Sarah Johnson',
+    role: 'CTO',
+    image: 'https://placehold.co/400x400',
+    bio: 'Quantum computing expert specialized in quantum algorithms and optimization.',
+    social: {
+      github: 'https://github.com/sarahjohnson',
+      linkedin: 'https://linkedin.com/in/sarahjohnson',
+      twitter: 'https://twitter.com/sarahjohnson'
+    }
   }
 ];
