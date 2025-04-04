@@ -14,7 +14,7 @@ export interface TeamMember {
 export const team: TeamMember[] = [
   {
     id: 1,
-    name: 'Alex Chen',
+    name: 'Shayan',
     role: 'Founder & CEO',
     image: 'https://placehold.co/400x400',
     bio: 'AI researcher with 10+ years experience in deep learning and neural networks.',
