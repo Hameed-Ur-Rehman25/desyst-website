@@ -23,11 +23,4 @@ export const services: Service[] = [
     icon: 'bar-chart',
     features: ['Predictive Modeling', '3D Visualization', 'Real-time Insights']
   },
-  {
-    id: 'security',
-    title: 'Quantum Security',
-    description: 'Next-generation security protocols enhanced with quantum-resistant encryption',
-    icon: 'shield',
-    features: ['Quantum Encryption', 'AI Threat Detection', 'Zero-Trust Architecture']
-  }
 ];
