@@ -27,7 +27,7 @@ export const projects: Project[] = [
     tech: ['Q#', 'Python', 'TypeScript', 'Azure'],
     link: '#',
     github: '#',
-    image: 'vercel.svg' // Using a local image instead of an external URL
+    image: 'globe.svg' // Using a local image instead of an external URL
   },
   {
     id: 3,

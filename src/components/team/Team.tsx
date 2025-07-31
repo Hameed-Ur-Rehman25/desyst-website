@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import { team } from '@/data/team-data';
+import Image from 'next/image';
 
 interface SocialLinkProps {
   href: string;
@@ -81,19 +82,49 @@ export default function Team() {
               className={`group relative rounded-3xl bg-white/5 backdrop-blur-xl p-8 ring-1 ring-white/10 hover:ring-violet-500/50 transition-all duration-700 hover:-translate-y-2 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Image Container - Using gradient avatar with initials */}
+              {/* Image Container */}
               <div className="relative w-32 h-32 mx-auto mb-6">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 animate-pulse-slow blur-sm" />
-                <div className="absolute inset-1 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600" />
-                
-                {/* Display initials in circle */}
-                <div className="absolute inset-0 flex items-center justify-center rounded-full p-[2px]">
-                  <div className="w-full h-full rounded-full bg-violet-900/50 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-white/70">
-                      {getInitials(member.name)}
-                    </span>
+                {member.image && member.image !== 'https://placehold.co/400x400' ? (
+                  // Display actual image if available and not placeholder
+                  <div className="relative w-full h-full">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 animate-pulse-slow blur-sm" />
+                    <div className="absolute inset-1 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600" />
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="absolute inset-1 rounded-full object-cover"
+                      unoptimized
+                      onError={(e) => {
+                        // Fallback to initials if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center rounded-full p-[2px]">
+                      <div className="w-full h-full rounded-full bg-violet-900/50 flex items-center justify-center">
+                        <span className="text-2xl font-bold text-white/70">
+                          {getInitials(member.name)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  // Fallback to gradient avatar with initials
+                  <div className="relative w-full h-full">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 animate-pulse-slow blur-sm" />
+                    <div className="absolute inset-1 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600" />
+                    
+                    {/* Display initials in circle */}
+                    <div className="absolute inset-0 flex items-center justify-center rounded-full p-[2px]">
+                      <div className="w-full h-full rounded-full bg-violet-900/50 flex items-center justify-center">
+                        <span className="text-2xl font-bold text-white/70">
+                          {getInitials(member.name)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Content */}

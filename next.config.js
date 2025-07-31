@@ -2,13 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['placehold.co'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'placehold.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+      },
     ],
+    loader: 'default',
+    unoptimized: true,
   },
   // Fix module resolution for 'desyst-website' local dependency
   webpack: (config) => {

@@ -29,5 +29,12 @@ export const services: Service[] = [
     description: 'Next-generation security protocols enhanced with quantum-resistant encryption',
     icon: 'shield',
     features: ['Quantum Encryption', 'AI Threat Detection', 'Zero-Trust Architecture']
-  }
+  },
+  {
+    id: 'secusdrity',
+    title: 'Quantum Sedscurity',
+    description: 'Next-generation security protocols enhanced with quantum-resistant encryption',
+    icon: 'shield',
+    features: ['Quantum Encryption', 'AI Threat Detection', 'Zero-Trust Architecture']
+  },
 ];

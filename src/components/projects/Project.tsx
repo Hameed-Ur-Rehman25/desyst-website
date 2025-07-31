@@ -68,7 +68,7 @@ export default function Projects() {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Project Image */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-violet-900/20 to-indigo-900/20">
                 {project.image ? (
                   isExternalImage(project.image) ? (
                     // External image (URL)
@@ -76,7 +76,13 @@ export default function Projects() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain transition-transform duration-700 group-hover:scale-105"
+                      style={{
+                        objectPosition: 'center',
+                        maxWidth: '100%',
+                        maxHeight: '100%'
+                      }}
                     />
                   ) : (
                     // Local image from public folder
@@ -84,12 +90,18 @@ export default function Projects() {
                       src={`/${project.image}`}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain transition-transform duration-700 group-hover:scale-105"
+                      style={{
+                        objectPosition: 'center',
+                        maxWidth: '100%',
+                        maxHeight: '100%'
+                      }}
                     />
                   )
                 ) : (
                   // Gradient placeholder for projects without images
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-900/60 to-indigo-900/60 transition-transform duration-700 group-hover:scale-110">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-900/60 to-indigo-900/60 transition-transform duration-700 group-hover:scale-105">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-6xl font-bold text-white/30">{project.title[0]}</span>
                     </div>
@@ -97,7 +109,7 @@ export default function Projects() {
                 )}
                 
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
               </div>
 
               {/* Content */}
