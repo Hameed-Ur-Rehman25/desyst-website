@@ -172,11 +172,7 @@ export default function Contact() {
                           <div>
                             <p className="font-medium text-white">Head Office</p>
                             <div className="mt-1 space-y-1">
-                              <p>Unit 5</p>
-                              <p>Coldwall Industrial Estate</p>
-                              <p>Spotland Road</p>
-                              <p>Rochdale</p>
-                              <p>OL12 7BD</p>
+                              <p>Unit 5, Coldwall Industrial Estate, Spotland Road, Rochdale OL12 7BD</p>
                             </div>
                           </div>
                         </div>
