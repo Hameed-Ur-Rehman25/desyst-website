@@ -16,7 +16,7 @@ export const team: TeamMember[] = [
     id: 1,
     name: 'Ahmed Shayan',
     role: 'Co-Founder',
-    image: '/images/Screenshot 2025-08-26 at 12.15.48 PM.png',
+    image: '/images/shayan.png',
     bio: 'Data Engineer with over 4+ years of experience, working in scalable ETL Pipelines, Data Warehousing, DevOps, and maintaining flow of all data sources and steps',
     social: {
       github: 'https://github.com/Ahmed-Shayan-Arsalan',

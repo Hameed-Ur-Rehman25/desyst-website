@@ -59,7 +59,7 @@ export default function Services() {
 
           {/* Services grid with staggered animation */}
           <div className="relative grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-2 h-full">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <div
                 key={service.id}
                 className="group relative flex flex-col rounded-2xl bg-white/5 backdrop-blur-sm p-4 ring-1 ring-white/10 hover:ring-indigo-500/50 transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-indigo-500/10"

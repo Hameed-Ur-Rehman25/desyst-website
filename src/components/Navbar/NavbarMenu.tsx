@@ -4,6 +4,13 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "./NavbarMenuUI"
 import { NAVBAR_TABS } from "@/data/navbar/constants"
 import { cn } from "@/lib/utils"
 
+interface NavbarItem {
+  text: string;
+  href: string;
+  src?: string;
+  description?: string;
+}
+
 export default function NavbarMenu({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
@@ -16,7 +23,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
               <MenuItem key={tab.label} setActive={setActive} active={active} item={tab.label}>
                 {tab.label === "Projects" ? (
                   <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                    {tab.details.map((item: any) => (
+                    {tab.details.map((item: NavbarItem) => (
                       <ProductItem
                         key={item.text}
                         title={item.text}
@@ -28,7 +35,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-4 text-sm">
-                    {tab.details.map((item: any) => (
+                    {tab.details.map((item: NavbarItem) => (
                       <HoveredLink key={item.text} href={item.href}>{item.text}</HoveredLink>
                     ))}
                   </div>

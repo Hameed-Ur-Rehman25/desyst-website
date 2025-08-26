@@ -1,5 +1,6 @@
 "use client"
 import type React from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 
 const transition = {
@@ -79,13 +80,13 @@ export const ProductItem = ({
   src,
 }: {
   title: string
-  description: string
+  description?: string
   href: string
-  src: string
+  src?: string
 }) => {
   return (
     <a href={href} className="flex space-x-2">
-      <img
+      <Image
         src={src || "/placeholder.svg"}
         width={140}
         height={70}
@@ -94,15 +95,23 @@ export const ProductItem = ({
       />
       <div>
   <h4 className="text-xl font-bold mb-1 text-white">{title}</h4>
-  <p className="text-white text-sm max-w-[10rem]">{description}</p>
+  <p className="text-white text-sm max-w-[10rem]">{description || ""}</p>
       </div>
     </a>
   )
 }
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ 
+  children, 
+  href,
+  ...rest 
+}: { 
+  children: React.ReactNode;
+  href: string;
+  [key: string]: unknown;
+}) => {
   return (
-    <a {...rest} className="text-white hover:text-gray-300">
+    <a href={href} {...rest} className="text-white hover:text-gray-300">
       {children}
     </a>
   );
