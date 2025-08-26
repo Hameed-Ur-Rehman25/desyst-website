@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Shield, Cloud, Cpu, BarChart } from 'lucide-react';
+import { Shield, Cloud, Cpu, BarChart, Globe, Smartphone, Palette } from 'lucide-react';
 import { services } from '@/data/service-data';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
@@ -9,7 +9,10 @@ const getIcon = (iconName: string) => {
     shield: <Shield className="w-5 h-5" />,
     cloud: <Cloud className="w-5 h-5" />,
     cpu: <Cpu className="w-5 h-5" />,
-    'bar-chart': <BarChart className="w-5 h-5" />
+    'bar-chart': <BarChart className="w-5 h-5" />,
+    globe: <Globe className="w-5 h-5" />,
+    smartphone: <Smartphone className="w-5 h-5" />,
+    palette: <Palette className="w-5 h-5" />
   };
   return icons[iconName as keyof typeof icons] || null;
 };

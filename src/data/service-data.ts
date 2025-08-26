@@ -24,17 +24,24 @@ export const services: Service[] = [
     features: ['Predictive Modeling', '3D Visualization', 'Real-time Insights']
   },
   {
-    id: 'security',
-    title: 'Quantum Security',
-    description: 'Next-generation security protocols enhanced with quantum-resistant encryption',
-    icon: 'shield',
-    features: ['Quantum Encryption', 'AI Threat Detection', 'Zero-Trust Architecture']
+    id: 'web-development',
+    title: 'Web Development',
+    description: 'Modern, responsive websites built with cutting-edge technologies and best practices',
+    icon: 'globe',
+    features: ['Responsive Design', 'Performance Optimization', 'SEO Ready']
   },
   {
-    id: 'secusdrity',
-    title: 'Quantum Sedscurity',
-    description: 'Next-generation security protocols enhanced with quantum-resistant encryption',
-    icon: 'shield',
-    features: ['Quantum Encryption', 'AI Threat Detection', 'Zero-Trust Architecture']
+    id: 'app-development',
+    title: 'App Development',
+    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences',
+    icon: 'smartphone',
+    features: ['Cross-Platform', 'Native Performance', 'App Store Ready']
+  },
+  {
+    id: 'ui-ux',
+    title: 'UI & UX Design',
+    description: 'User-centered design solutions that create intuitive and engaging digital experiences',
+    icon: 'palette',
+    features: ['User Research', 'Prototyping', 'Design Systems']
   },
 ];
