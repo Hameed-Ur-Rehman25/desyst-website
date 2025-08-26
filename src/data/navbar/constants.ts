@@ -2,26 +2,28 @@ export const NAVBAR_TABS = [
   {
     label: "Services",
     details: [
-      { text: "Web Development", href: "/web-dev" },
-      { text: "Interface Design", href: "/interface-design" },
-      { text: "Search Engine Optimization", href: "/seo" },
-      { text: "Branding", href: "/branding" },
+      { text: "AI Automation", href: "#services" },
+      { text: "Cloud Infrastructure", href: "#services" },
+      { text: "Advanced Analytics", href: "#services" },
+      { text: "Web Development", href: "#services" },
+      { text: "App Development", href: "#services" },
+      { text: "UI & UX Design", href: "#services" },
     ],
   },
   {
-    label: "Products",
+    label: "Projects",
     details: [
       {
-        text: "Algochurn",
-        href: "https://algochurn.com",
-        src: "https://assets.aceternity.com/demos/algochurn.webp",
-        description: "Prepare for tech interviews like never before."
+        text: "Omluxe Concierge",
+        href: "https://om-front.vercel.app",
+        src: "/projects/project1.png",
+        description: "The Omluxe Concierge is an assistant designed to help you attain higher spiritual essence."
       },
       {
-        text: "Tailwind Master Kit",
-        href: "https://tailwindmasterkit.com",
-        src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
-        description: "Production ready Tailwind css components for your next project"
+        text: "FamCare 24/7",
+        href: "https://stroke-mk6e9m1t3-hameed-ur-rehman25s-projects.vercel.app",
+        src: "/projects/stroke_web.png",
+        description: "A WhatsApp-based chatbot designed to provide family caregivers of stroke patients"
       },
       {
         text: "Moonbeam",
@@ -30,9 +32,9 @@ export const NAVBAR_TABS = [
         description: "Never write from scratch again. Go from idea to blog in minutes."
       },
       {
-        text: "Rogue",
-        href: "https://userogue.com",
-        src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+        text: "Law Bot",
+        href: "https://www.extranjer-ia.info",
+        src: "/projects/lawbot.png",
         description: "Respond to government RFPs, RFIs and RFQs 10x faster using AI"
       }
     ],

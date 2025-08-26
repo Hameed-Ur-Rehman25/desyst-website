@@ -14,7 +14,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
           <div className="flex space-x-7">
             {NAVBAR_TABS.map(tab => (
               <MenuItem key={tab.label} setActive={setActive} active={active} item={tab.label}>
-                {tab.label === "Products" ? (
+                {tab.label === "Projects" ? (
                   <div className="text-sm grid grid-cols-2 gap-10 p-4">
                     {tab.details.map((item: any) => (
                       <ProductItem
