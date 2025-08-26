@@ -155,7 +155,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-lg font-medium text-white">Reach Out</h3>
-                      <p className="mt-2 text-[#ffffffb3]">hello@desyst.io</p>
+                      <p className="mt-2 text-[#ffffffb3]">info@knevatech.com</p>
                       <p className="text-[#ffffffb3]">+1 (555) 000-0000</p>
                     </div>
                   </div>
@@ -164,21 +164,20 @@ export default function Contact() {
                     <div className="rounded-xl bg-gradient-to-r from-[#4f3b99]/10 to-[#3b4999]/10 p-6">
                       <h4 className="flex items-center gap-2 text-lg font-medium text-white mb-6">
                         <MapPin className="w-5 h-5 text-[#a18fff]" />
-                        Global Offices
+                        Our Location
                       </h4>
-                      <div className="space-y-6 text-[#ffffffb3]">
+                      <div className="space-y-4 text-[#ffffffb3]">
                         <div className="flex items-start gap-4">
                           <span className="w-2 h-2 rounded-full bg-[#a18fff] mt-2" />
                           <div>
-                            <p className="font-medium text-white">Americas</p>
-                            <p className="mt-1">New York • San Francisco • Toronto</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-4">
-                          <span className="w-2 h-2 rounded-full bg-[#8291ff] mt-2" />
-                          <div>
-                            <p className="font-medium text-white">Europe & Asia</p>
-                            <p className="mt-1">London • Singapore • Tokyo</p>
+                            <p className="font-medium text-white">Head Office</p>
+                            <div className="mt-1 space-y-1">
+                              <p>Unit 5</p>
+                              <p>Coldwall Industrial Estate</p>
+                              <p>Spotland Road</p>
+                              <p>Rochdale</p>
+                              <p>OL12 7BD</p>
+                            </div>
                           </div>
                         </div>
                       </div>
