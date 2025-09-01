@@ -16,7 +16,7 @@ export const NAVBAR_TABS = [
       {
         text: "Omluxe Concierge",
         href: "https://om-front.vercel.app",
-        src: "/projects/project1.png",
+        src: "/projects/om-front-vercel-app-1024x768desktop-ebedea.jpg",
         description: "The Omluxe Concierge is an assistant designed to help you attain higher spiritual essence."
       },
       {
@@ -26,10 +26,10 @@ export const NAVBAR_TABS = [
         description: "A WhatsApp-based chatbot designed to provide family caregivers of stroke patients"
       },
       {
-        text: "Moonbeam",
-        href: "https://gomoonbeam.com",
-        src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
-        description: "Never write from scratch again. Go from idea to blog in minutes."
+        text: "WHS Assistant",
+        href: "https://www.whs.help",
+        src: "/projects/whs.png",
+        description: "Ask me anything about Workplace Health & Safety policies and procedures."
       },
       {
         text: "Law Bot",
@@ -37,21 +37,13 @@ export const NAVBAR_TABS = [
         src: "/projects/lawbot.png",
         description: "Respond to government RFPs, RFIs and RFQs 10x faster using AI"
       }
+      
     ],
   },
-//   {
-//     label: "Pricing",
-//     details: [
-//       { text: "Hobby", href: "/hobby" },
-//       { text: "Individual", href: "/individual" },
-//       { text: "Team", href: "/team" },
-//       { text: "Enterprise", href: "/enterprise" },
-//     ],
-//   },
   {
     label: "Team",
     details: [
-      { text: "Leadership", href: "/leadership" },
+    // { text: "Leadership", href: "/leadership" },
     //   { text: "Developers", href: "/developers" },
     //   { text: "Designers", href: "/designers" },
     //   { text: "Careers", href: "/careers" },

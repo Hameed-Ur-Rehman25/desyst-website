@@ -7,15 +7,16 @@ export interface HeroParallaxProduct {
 }
 
 export const heroParallaxProducts: HeroParallaxProduct[] = [
+    // <---------------------------> FIRST ROW <--------------------------->
   {
     title: "LawBot AI",
     link: "https://www.extranjer-ia.info",
     thumbnail: "/projects/lawbot.png",
   },
   {
-    title: "Chat Bot",
+    title: "OM-front Chatbot",
     link: "https://om-front.vercel.app",
-    thumbnail: "/projects/project1.png",
+    thumbnail: "/projects/om-front-vercel-app-1024x768desktop-ebedea.jpg",
   },
   {
     title: "Stroke Web",
@@ -23,63 +24,30 @@ export const heroParallaxProducts: HeroParallaxProduct[] = [
     thumbnail: "/projects/stroke_web.png",
   },
   {
-    title: "Neural Vision",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop",
+   title: "LawBot AI",
+    link: "https://www.extranjer-ia.info",
+    thumbnail: "/projects/lawbot.png",  
+  },
+
+  // <---------------------------> SECOND ROW <--------------------------->
+  {
+    title: "WHS Assistant",
+    link: "https://www.whs.help",
+    thumbnail: "/projects/whs.png",
   },
   {
-    title: "Quantum Core",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
+    title: "OM-front Chatbot",
+    link: "https://om-front.vercel.app",
+    thumbnail: "/projects/om-front-vercel-app-1024x768desktop-ebedea.jpg",
   },
   {
-    title: "Neural Networks",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
+    title: "Stroke Web",
+    link: "https://stroke-mk6e9m1t3-hameed-ur-rehman25s-projects.vercel.app",
+    thumbnail: "/projects/stroke_web.png",
   },
   {
-    title: "AI Dashboard",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Smart Analytics",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Cloud Platform",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Data Visualization",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Mobile App",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Web Development",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-  },
-  {
-    title: "E-commerce Platform",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Security Systems",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
-  },
-  {
-    title: "DevOps Tools",
-    link: "#",
-    thumbnail: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop",
+    title: "WHS Assistant",
+    link: "https://www.whs.help",
+    thumbnail: "/projects/whs.png", 
   },
 ];
