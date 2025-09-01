@@ -4,7 +4,7 @@ import { coverDemoContent } from "@/data/constants/cover-demo";
 
 export default function CoverDemo() {
   return (
-    <div className="relative py-20 bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] overflow-hidden">
+    <div className="relative py-20 bg-gradient-to-b from-[#0A0118] via-[#1A0B2E] to-[#2A1458] overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent_50%)]" />

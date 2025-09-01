@@ -22,11 +22,10 @@ export default function Team() {
   }));
 
   return (
-    <section id="team" className="relative min-h-screen bg-[radial-gradient(ellipse_at_center,#2a1458_0%,#0f051d_100%)] py-16 overflow-hidden">
+    <section id="team" className="relative min-h-screen bg-gradient-to-b from-[#2a1458] via-[#1F1147] to-[#0f051d] py-16 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:14px_14px] opacity-30" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
       </div>
 

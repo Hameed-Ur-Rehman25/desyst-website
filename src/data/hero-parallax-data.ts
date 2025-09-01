@@ -50,4 +50,9 @@ export const heroParallaxProducts: HeroParallaxProduct[] = [
     link: "https://www.whs.help",
     thumbnail: "/projects/whs.png", 
   },
+  {
+   title: "LawBot AI",
+    link: "https://www.extranjer-ia.info",
+    thumbnail: "/projects/lawbot.png",  
+  },
 ];

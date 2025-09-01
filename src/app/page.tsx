@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Services from '@/components/services/Services';
 import CoverDemo from '@/components/cover-demo';
+import WobbleCardDemo from '@/components/wobble-card-demo';
 import HeroParallaxDemo from '@/components/hero-parallax-demo';
 import Team from '@/components/team/Team';
 import Contact from '@/components/contact/ContactForm';
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroParallaxDemo />
       <Services />
       <CoverDemo />
+      <WobbleCardDemo />
       <Team />
       <Contact />
     </section>
