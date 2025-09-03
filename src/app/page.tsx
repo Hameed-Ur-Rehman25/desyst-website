@@ -6,6 +6,7 @@ import CoverDemo from '@/components/cover-demo';
 import WobbleCardDemo from '@/components/wobble-card-demo';
 import HeroParallaxDemo from '@/components/hero-parallax-demo';
 import Team from '@/components/team/Team';
+import Reviews from '@/components/reviews/Reviews';
 import Contact from '@/components/contact/ContactForm';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <CoverDemo />
       <WobbleCardDemo />
       <Team />
+      <Reviews />
       <Contact />
     </section>
   );
