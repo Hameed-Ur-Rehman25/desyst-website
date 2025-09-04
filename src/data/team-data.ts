@@ -40,10 +40,10 @@ export const team: TeamMember[] = [
     id: 3,
     name: 'Fahad Ramzan',
     role: 'Sr Full Stack Developer',
-    image: '/images/fahad_.png',
-    bio: 'A skilled Senior Full Stack Developer with expertise in creating scalable, user-friendly, and efficient web and mobile solutions. ',
+    image: '/images/fahad.jpeg',
+    bio: 'A highly skilled Data Scientist with 3+ years of experience in AI/ML, LLM optimization, and AI-driven automation, consistently delivering production-ready solutions that create real impact.',
     social: {
-      github: '',
+      github: 'https://github.com/ifahadramzan',
       linkedin: 'https://www.linkedin.com/in/fahad-ramzan/',
       twitter: ''
     }
