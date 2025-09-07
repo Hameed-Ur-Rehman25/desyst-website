@@ -71,6 +71,16 @@
   animation: float-delayed 8s ease-in-out infinite;
 }
 
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 
 
 @layer base {

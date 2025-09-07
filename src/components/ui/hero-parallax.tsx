@@ -72,9 +72,9 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className="relative z-10"
+        className="relative z-10 px-4 md:px-0"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -83,7 +83,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        <motion.div className="flex flex-row mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -92,7 +92,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -168,7 +168,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0"
+      className="group/product h-72 w-80 md:h-96 md:w-[30rem] relative shrink-0"
     >
       <a
         href={product.link}
