@@ -105,7 +105,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                 </div>
                 
                 <nav className="space-y-4">
-                  {NAVBAR_TABS.map((tab, index) => (
+                  {NAVBAR_TABS.map((tab) => (
                     <a
                       key={tab.label}
                       href={tab.details[0]?.href || '#'}

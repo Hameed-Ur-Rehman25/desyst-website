@@ -37,7 +37,6 @@ export const NAVBAR_TABS = [
         src: "/projects/lawbot.png",
         description: "Respond to government RFPs, RFIs and RFQs 10x faster using AI"
       }
-      
     ],
   },
   {
