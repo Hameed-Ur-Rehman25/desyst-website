@@ -8,6 +8,7 @@ interface NavbarTab {
     href: string;
     src?: string;
     description?: string;
+    tech?: string[];
   }[];
 }
 

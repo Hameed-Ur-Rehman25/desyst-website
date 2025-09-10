@@ -43,5 +43,6 @@ export const projects = [
     tech: ["Angular", "Spring Boot", "MySQL", "Material UI"],
     link: "https://whs-system.netlify.app",
     github: "https://github.com/fahadramzan3975/whs-system"
-  }
+  },
+  //Add more projects as needed
 ];
