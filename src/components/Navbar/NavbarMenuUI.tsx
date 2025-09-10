@@ -14,20 +14,41 @@ export const MenuItem = ({
   active,
   item,
   children,
+  href,
 }: {
   setActive: (item: string) => void
   active: string | null
   item: string
   children?: React.ReactNode
+  href?: string
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
-      <motion.p
-        transition={{ duration: 0.3 }} 
-  className="cursor-pointer text-white hover:opacity-80"
-      >
-        {item}
-      </motion.p>
+      {href ? (
+        <motion.button
+          onClick={() => {
+            if (href.startsWith('#')) {
+              // Handle smooth scrolling for anchor links
+              const targetElement = document.querySelector(href);
+              targetElement?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              // Handle regular navigation for external links
+              window.location.href = href;
+            }
+          }}
+          transition={{ duration: 0.3 }} 
+          className="cursor-pointer text-white hover:opacity-80"
+        >
+          {item}
+        </motion.button>
+      ) : (
+        <motion.p
+          transition={{ duration: 0.3 }} 
+          className="cursor-pointer text-white hover:opacity-80"
+        >
+          {item}
+        </motion.p>
+      )}
       {active !== null && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}

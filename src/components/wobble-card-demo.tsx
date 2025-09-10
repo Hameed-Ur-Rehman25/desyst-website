@@ -66,6 +66,30 @@ export default function WobbleCardDemo() {
               Schedule a free AI consultation and discover how machine learning and intelligent automation can optimize
               your processes and unlock new opportunities.
             </p>
+            
+            {/* Contact Button */}
+            <button 
+              onClick={() => {
+                const contactSection = document.querySelector('#contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-800 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 hover:shadow-xl hover:shadow-white/20 transform hover:scale-105 border border-white/10"
+            >
+              <span>Get Free Consultation</span>
+              <svg 
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                />
+              </svg>
+            </button>
           </div>
           <Image
             src="/modern-ai-robot-collaborating-with-human-developer.png"

@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import Link from "next/link"
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./NavbarMenuUI"
 import { NAVBAR_TABS } from "@/data/navbar/constants"
 import { cn } from "@/lib/utils"
@@ -33,7 +34,13 @@ export default function NavbarMenu({ className }: { className?: string }) {
             <div className="font-bold text-xl mr-8 bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent">KnevaTech</div>
             <div className="flex space-x-7">
               {NAVBAR_TABS.map(tab => (
-                <MenuItem key={tab.label} setActive={setActive} active={active} item={tab.label}>
+                <MenuItem 
+                  key={tab.label} 
+                  setActive={setActive} 
+                  active={active} 
+                  item={tab.label}
+                  href={tab.href}
+                >
                   {tab.label === "Projects" ? (
                     <div className="text-sm grid grid-cols-2 gap-10 p-4">
                       {tab.details.map((item: NavbarItem) => (
@@ -106,14 +113,24 @@ export default function NavbarMenu({ className }: { className?: string }) {
                 
                 <nav className="space-y-4">
                   {NAVBAR_TABS.map((tab) => (
-                    <a
+                    <button
                       key={tab.label}
-                      href={tab.details[0]?.href || '#'}
-                      onClick={closeMobileMenu}
-                      className="block text-white hover:text-purple-300 hover:bg-white/5 rounded-lg px-4 py-3 transition-colors text-lg font-medium border-b border-white/10 last:border-b-0"
+                      onClick={() => {
+                        const href = tab.href || tab.details[0]?.href || '#';
+                        if (href.startsWith('#')) {
+                          // Handle smooth scrolling for anchor links
+                          const targetElement = document.querySelector(href);
+                          targetElement?.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          // Handle regular navigation for external links
+                          window.location.href = href;
+                        }
+                        closeMobileMenu();
+                      }}
+                      className="block w-full text-left text-white hover:text-purple-300 hover:bg-white/5 rounded-lg px-4 py-3 transition-colors text-lg font-medium border-b border-white/10 last:border-b-0"
                     >
                       {tab.label}
-                    </a>
+                    </button>
                   ))}
                 </nav>
               </div>
