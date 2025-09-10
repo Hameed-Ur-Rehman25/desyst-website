@@ -156,7 +156,6 @@ export default function Contact() {
                     <div>
                       <h3 className="text-lg font-medium text-white">Reach Out</h3>
                       <p className="mt-2 text-[#ffffffb3]">info@knevatech.com</p>
-                      <p className="text-[#ffffffb3]">+1 (555) 000-0000</p>
                     </div>
                   </div>
 
