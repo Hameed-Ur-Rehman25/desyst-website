@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react"
-import Link from "next/link"
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./NavbarMenuUI"
 import { NAVBAR_TABS } from "@/data/navbar/constants"
 import { cn } from "@/lib/utils"
