@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { Mail, Star, Send, Sparkles, Loader2, MapPin } from 'lucide-react';
+import { EMAIL_CONFIG } from '@/data/email-config';
 
 export default function Contact() {
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setMounted(true);
@@ -15,22 +17,37 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
+    
     const formData = new FormData(e.target as HTMLFormElement);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(EMAIL_CONFIG.formspreeEndpoint, {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      const data = await response.json();
-      if (data.success) {
+      if (response.ok) {
         setSubmitted(true);
         (e.target as HTMLFormElement).reset();
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        const data = await response.json();
+        console.error('Formspree error:', data);
+        setError(data.error || EMAIL_CONFIG.form.errorMessage);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Network error:', error);
+      setError(EMAIL_CONFIG.form.errorMessage);
     }
+    
     setLoading(false);
   };
 
@@ -74,7 +91,10 @@ export default function Contact() {
             <div className="absolute -inset-1 bg-gradient-to-r from-[#4f3b99] to-[#3b4999] rounded-2xl blur-xl opacity-20 animate-pulse-slow" />
             <div className="relative rounded-2xl bg-[#ffffff08] p-6 sm:p-8 shadow-xl shadow-black/10 backdrop-blur-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+                {/* Formspree Configuration */}
+                <input type="hidden" name="_subject" value={EMAIL_CONFIG.subject} />
+                <input type="hidden" name="_replyto" value="" />
+                <input type="hidden" name="_next" value="false" />
                 
                 <div className="space-y-5">
                   <div>
@@ -131,10 +151,19 @@ export default function Contact() {
                   </div>
                 </button>
 
+                {/* Success Message */}
                 {submitted && (
-                  <div className="mt-4 p-4 rounded-xl bg-[#4f3b99]/20 text-[#a18fff] text-center">
+                  <div className="mt-4 p-4 rounded-xl bg-green-500/20 border border-green-500/30 text-green-400 text-center">
                     <Sparkles className="w-5 h-5 inline-block mr-2" />
-                    Thank you! We&apos;ll be in touch soon.
+                    {EMAIL_CONFIG.form.successMessage}
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {error && (
+                  <div className="mt-4 p-4 rounded-xl bg-red-500/20 border border-red-500/30 text-red-400 text-center">
+                    <span className="text-red-400">⚠️</span>
+                    <span className="ml-2">{error}</span>
                   </div>
                 )}
               </form>
