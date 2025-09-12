@@ -15,25 +15,31 @@ export const MenuItem = ({
   item,
   children,
   href,
+  onNavigate,
 }: {
   setActive: (item: string) => void
   active: string | null
   item: string
   children?: React.ReactNode
   href?: string
+  onNavigate?: (href: string) => void
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       {href ? (
         <motion.button
           onClick={() => {
-            if (href.startsWith('#')) {
-              // Handle smooth scrolling for anchor links
-              const targetElement = document.querySelector(href);
-              targetElement?.scrollIntoView({ behavior: 'smooth' });
+            if (onNavigate) {
+              onNavigate(href);
             } else {
-              // Handle regular navigation for external links
-              window.location.href = href;
+              if (href.startsWith('#')) {
+                // Handle smooth scrolling for anchor links
+                const targetElement = document.querySelector(href);
+                targetElement?.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                // Handle regular navigation for external links
+                window.location.href = href;
+              }
             }
           }}
           transition={{ duration: 0.3 }} 
@@ -60,7 +66,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="bg-gradient-to-br from-[#23232999] via-[#23232966] to-[#18181b33] text-white backdrop-blur-3xl rounded-2xl overflow-hidden border border-[#232329] shadow-2xl ring-1 ring-white/20 ring-inset "
+                className="bg-gradient-to-br from-[#232329cc] via-[#232329aa] to-[#18181b88] text-white backdrop-blur-3xl rounded-2xl overflow-hidden border border-[#232329] shadow-2xl ring-1 ring-white/20 ring-inset "
               >
                 <motion.div
                   layout
@@ -87,7 +93,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-                className="relative rounded-full border border-[#232329] bg-gradient-to-br from-[#23232999] via-[#23232966] to-[#18181b33] backdrop-blur-3xl shadow-2xl flex justify-center space-x-4 px-8 py-6 ring-1 ring-white/20 ring-inset "
+                className="relative rounded-full border border-[#232329] bg-gradient-to-br from-[#232329cc] via-[#232329aa] to-[#18181b88] backdrop-blur-3xl shadow-2xl flex justify-center space-x-4 px-8 py-6 ring-1 ring-white/20 ring-inset "
     >
       {children}
     </nav>
@@ -125,15 +131,32 @@ export const ProductItem = ({
 export const HoveredLink = ({ 
   children, 
   href,
+  onNavigate,
   ...rest 
 }: { 
   children: React.ReactNode;
   href: string;
+  onNavigate?: (href: string) => void;
   [key: string]: unknown;
 }) => {
   return (
-    <a href={href} {...rest} className="text-white hover:text-gray-300">
+    <button 
+      onClick={() => {
+        if (onNavigate) {
+          onNavigate(href);
+        } else {
+          if (href.startsWith('#')) {
+            const targetElement = document.querySelector(href);
+            targetElement?.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.href = href;
+          }
+        }
+      }}
+      {...rest} 
+      className="text-white hover:text-gray-300 text-left"
+    >
       {children}
-    </a>
+    </button>
   );
 }

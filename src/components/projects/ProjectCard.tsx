@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
@@ -17,6 +19,11 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [showAllTech, setShowAllTech] = useState(false);
+
+  const displayedTech = showAllTech ? project.tech : project.tech.slice(0, 3);
+  const remainingTechCount = project.tech.length - 3;
+
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
       {/* Project Image */}
@@ -44,7 +51,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.slice(0, 3).map((tech, index) => (
+          {displayedTech.map((tech, index) => (
             <span
               key={index}
               className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full border border-blue-200"
@@ -52,10 +59,21 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {tech}
             </span>
           ))}
-          {project.tech.length > 3 && (
-            <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full border border-gray-200">
-              +{project.tech.length - 3} more
-            </span>
+          {!showAllTech && remainingTechCount > 0 && (
+            <button
+              onClick={() => setShowAllTech(true)}
+              className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full border border-gray-200 hover:bg-gray-200 hover:text-gray-700 transition-colors cursor-pointer"
+            >
+              +{remainingTechCount} more
+            </button>
+          )}
+          {showAllTech && project.tech.length > 3 && (
+            <button
+              onClick={() => setShowAllTech(false)}
+              className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full border border-gray-200 hover:bg-gray-200 hover:text-gray-700 transition-colors cursor-pointer"
+            >
+              Show less
+            </button>
           )}
         </div>
 

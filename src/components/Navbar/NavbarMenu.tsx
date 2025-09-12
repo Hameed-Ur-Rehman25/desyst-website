@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { useRouter, usePathname } from "next/navigation"
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./NavbarMenuUI"
 import { NAVBAR_TABS } from "@/data/navbar/constants"
 import { cn } from "@/lib/utils"
@@ -15,6 +16,8 @@ interface NavbarItem {
 export default function NavbarMenu({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -22,6 +25,26 @@ export default function NavbarMenu({ className }: { className?: string }) {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      // If we're on a different page (not home), navigate to home first
+      if (pathname !== '/') {
+        router.push(`/${href}`);
+      } else {
+        // If we're on home page, scroll to section
+        const targetElement = document.querySelector(href);
+        targetElement?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Handle regular navigation for external links or pages
+      if (href.startsWith('http')) {
+        window.open(href, '_blank');
+      } else {
+        router.push(href);
+      }
+    }
   };
 
   return (
@@ -39,6 +62,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                   active={active} 
                   item={tab.label}
                   href={tab.href}
+                  onNavigate={handleNavigation}
                 >
                   {tab.label === "Projects" ? (
                     <div className="text-sm grid grid-cols-2 gap-10 p-4">
@@ -55,7 +79,13 @@ export default function NavbarMenu({ className }: { className?: string }) {
                   ) : (
                     <div className="flex flex-col space-y-4 text-sm">
                       {tab.details.map((item: NavbarItem) => (
-                        <HoveredLink key={item.text} href={item.href}>{item.text}</HoveredLink>
+                        <HoveredLink 
+                          key={item.text} 
+                          href={item.href}
+                          onNavigate={handleNavigation}
+                        >
+                          {item.text}
+                        </HoveredLink>
                       ))}
                     </div>
                   )}
@@ -116,14 +146,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                       key={tab.label}
                       onClick={() => {
                         const href = tab.href || tab.details[0]?.href || '#';
-                        if (href.startsWith('#')) {
-                          // Handle smooth scrolling for anchor links
-                          const targetElement = document.querySelector(href);
-                          targetElement?.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                          // Handle regular navigation for external links
-                          window.location.href = href;
-                        }
+                        handleNavigation(href);
                         closeMobileMenu();
                       }}
                       className="block w-full text-left text-white hover:text-purple-300 hover:bg-white/5 rounded-lg px-4 py-3 transition-colors text-lg font-medium border-b border-white/10 last:border-b-0"
