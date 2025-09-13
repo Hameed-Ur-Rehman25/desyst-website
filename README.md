@@ -9,7 +9,7 @@ A modern, responsive website built with Next.js 15, React 19, and TailwindCSS, f
 - **Modern Design**: Sleek, professional interface with animated gradients and interactive elements
 - **Responsive Layout**: Fully responsive design that works beautifully on all devices
 - **Performance Optimized**: Built with Next.js 15 for optimal performance and SEO
-- **Interactive Components**: 
+- **Interactive Components**:
   - Animated hero section with floating elements
   - Smooth scroll navigation
   - Interactive service cards
@@ -22,7 +22,7 @@ A modern, responsive website built with Next.js 15, React 19, and TailwindCSS, f
 - **Framework**: Next.js 15.1.6
 - **UI Library**: React 19.0.0
 - **Styling**: TailwindCSS 3.4.1
-- **Icons**: 
+- **Icons**:
   - Lucide React 0.475.0
   - Hero Icons 2.2.0
 - **Animations**: Framer Motion 12.4.2
@@ -32,12 +32,14 @@ A modern, responsive website built with Next.js 15, React 19, and TailwindCSS, f
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Ninjaa-aa/desyst-website.git
 cd desyst-website
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -47,6 +49,7 @@ pnpm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -158,13 +161,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📬 Contact
-
-[Hammad Zahid](https://www.linkedin.com/in/hammad-zahid-61b502241/)
-
-Project Link: [https://github.com/Ninjaa-aa/desyst-website](https://github.com/Ninjaa-aa/desyst-website)
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com)
