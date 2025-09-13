@@ -53,7 +53,12 @@ export default function NavbarMenu({ className }: { className?: string }) {
       <div className="hidden md:block">
         <Menu setActive={setActive}>
           <div className="flex items-center justify-between w-full">
-            <div className="font-bold text-xl mr-8 bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent">KnevaTech</div>
+            <button 
+              onClick={() => handleNavigation('/')}
+              className="font-bold text-xl mr-8 bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              KnevaTech
+            </button>
             <div className="flex space-x-7">
               {NAVBAR_TABS.map(tab => (
                 <MenuItem 
@@ -100,9 +105,12 @@ export default function NavbarMenu({ className }: { className?: string }) {
       <div className="md:hidden">
         {/* Mobile Navbar */}
         <nav className="relative rounded-full border border-[#232329] bg-gradient-to-br from-[#23232999] via-[#23232966] to-[#18181b33] backdrop-blur-3xl shadow-2xl flex justify-between items-center px-6 py-4 ring-1 ring-white/20 ring-inset mx-4">
-          <div className="font-bold text-lg bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent">
+          <button 
+            onClick={() => handleNavigation('/')}
+            className="font-bold text-lg bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer"
+          >
             KnevaTech
-          </div>
+          </button>
           <button
             onClick={toggleMobileMenu}
             className="text-white hover:text-purple-300 transition-colors p-2"
@@ -129,9 +137,15 @@ export default function NavbarMenu({ className }: { className?: string }) {
             <div className="fixed top-0 right-0 h-full w-80 bg-gradient-to-br from-[#1A0B2E] via-[#2A1B3E] to-[#0A0118] backdrop-blur-3xl border-l border-white/10 shadow-2xl">
               <div className="p-6">
                 <div className="flex justify-between items-center mb-8">
-                  <div className="font-bold text-xl bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent">
+                  <button 
+                    onClick={() => {
+                      handleNavigation('/');
+                      closeMobileMenu();
+                    }}
+                    className="font-bold text-xl bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer"
+                  >
                     KnevaTech
-                  </div>
+                  </button>
                   <button
                     onClick={closeMobileMenu}
                     className="text-white hover:text-purple-300 transition-colors p-2"
