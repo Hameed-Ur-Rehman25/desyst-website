@@ -115,13 +115,33 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-white">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-gray-300">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="mt-4 text-lg text-gray-200">
+            <div className="flex items-start justify-between mb-4 md:mb-0">
+              <div>
+                <h3 className="text-2xl font-bold text-white">
+                  {testimonials[active].name}
+                </h3>
+                <p className="text-sm text-gray-300">
+                  {testimonials[active].designation}
+                </p>
+              </div>
+              {/* Arrow Navigation - Mobile: next to name/role, Desktop: hidden here */}
+              <div className="flex gap-2 ml-4 md:hidden">
+                <button
+                  onClick={handlePrev}
+                  className="group/button flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-200"
+                >
+                  <IconArrowLeft className="h-4 w-4 text-white transition-transform duration-300 group-hover/button:rotate-12" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="group/button flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-200"
+                >
+                  <IconArrowRight className="h-4 w-4 text-white transition-transform duration-300 group-hover/button:-rotate-12" />
+                </button>
+              </div>
+            </div>
+            
+            <motion.p className="text-lg text-gray-200 mb-4">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -183,7 +203,8 @@ export const AnimatedTestimonials = ({
               </div>
             )}
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          {/* Desktop Arrow Navigation - Bottom positioned */}
+          <div className="hidden md:flex gap-4 pt-6">
             <button
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
