@@ -2,6 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize animations for performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for heavy animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+}
+
+/* Enhanced shimmer animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 0.1) 0px,
+    rgba(168, 85, 247, 0.2) 40px,
+    rgba(168, 85, 247, 0.1) 80px
+  );
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.shimmer-fast {
+  animation: shimmer 1s infinite;
+}
+
+.shimmer-slow {
+  animation: shimmer 2s infinite;
+}
+
 .bg-grid-pattern {
   background-size: 20px 20px;
   background-image: 

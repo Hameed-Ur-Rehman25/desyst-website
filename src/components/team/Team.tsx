@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { team } from '@/data/team-data';
-import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
+import { LazyAnimatedTestimonials } from '@/components/LazyComponents';
 
 export default function Team() {
   const [mounted, setMounted] = useState(false);
@@ -61,7 +61,7 @@ export default function Team() {
 
         {/* Animated Testimonials */}
         <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+          <LazyAnimatedTestimonials testimonials={testimonials} autoplay={true} />
         </div>
       </div>
 
