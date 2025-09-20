@@ -96,7 +96,7 @@ export default function WobbleCardDemo() {
             width={500}
             height={500}
             alt="AI consultation meeting"
-            className="absolute -right-10 md:-right-[30%] lg:-right-[15%] -bottom-10 object-contain rounded-2xl max-w-[300px] lg:max-w-[450px]"
+            className="hidden md:block absolute -right-10 md:-right-[30%] lg:-right-[15%] -bottom-10 object-contain rounded-2xl max-w-[300px] lg:max-w-[450px]"
           />
         </WobbleCard>
       </div>
