@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -18,6 +18,18 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -29,34 +41,37 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
+  // Disable parallax effects on mobile
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    useTransform(scrollYProgress, [0, 1], [0, isMobile ? 0 : 1000]),
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    useTransform(scrollYProgress, [0, 1], [0, isMobile ? 0 : -1000]),
     springConfig
   );
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 0 : 15, 0]),
     springConfig
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 1 : 0.2, 1]),
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 0 : 20, 0]),
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 0 : -700, isMobile ? 0 : 500]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[200vh] md:h-[300vh] py-20 md:py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147]"
+      className={`h-[200vh] md:h-[300vh] py-20 md:py-40 overflow-hidden antialiased relative flex flex-col self-auto bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] ${
+        isMobile ? '' : '[perspective:1000px] [transform-style:preserve-3d]'
+      }`}
     >
       {/* Background effects to match your theme */}
       <div className="absolute inset-0 opacity-30">
@@ -79,6 +94,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
+              isMobile={isMobile}
               key={product.title}
             />
           ))}
@@ -88,6 +104,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateXReverse}
+              isMobile={isMobile}
               key={product.title}
             />
           ))}
@@ -97,6 +114,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
+              isMobile={isMobile}
               key={product.title}
             />
           ))}
@@ -151,6 +169,7 @@ export const Header = () => {
 export const ProductCard = ({
   product,
   translate,
+  isMobile = false,
 }: {
   product: {
     title: string;
@@ -158,14 +177,15 @@ export const ProductCard = ({
     thumbnail: string;
   };
   translate: MotionValue<number>;
+  isMobile?: boolean;
 }) => {
   return (
     <motion.div
       style={{
-        x: translate,
+        x: isMobile ? 0 : translate,
       }}
       whileHover={{
-        y: -20,
+        y: isMobile ? 0 : -20,
       }}
       key={product.title}
       className="group/product h-72 w-80 md:h-96 md:w-[30rem] relative shrink-0"
