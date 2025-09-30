@@ -69,6 +69,27 @@ img {
   animation: shimmer 2s infinite;
 }
 
+/* Services section styling */
+.bg-background {
+  background-color: #0a0a0a;
+}
+
+.bg-card {
+  background-color: #1a1a1a;
+}
+
+.border-border {
+  border-color: #2a2a2a;
+}
+
+.text-card-foreground {
+  color: #ffffff;
+}
+
+.text-muted-foreground {
+  color: #a1a1aa;
+}
+
 .bg-grid-pattern {
   background-size: 20px 20px;
   background-image: 

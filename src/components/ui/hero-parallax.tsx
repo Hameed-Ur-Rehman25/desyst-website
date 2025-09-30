@@ -126,13 +126,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-8 sm:py-12 md:py-20 lg:py-40 px-4 w-full left-0 top-0 z-10 mb-4 sm:mb-6 md:mb-8">
-      {/* Brand badge */}
-      <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-lg rounded-full px-4 py-2 border border-white/10 mb-8">
-        <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse"></span>
-        <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Portfolio Showcase</span>
-      </div>
-      
+    <div className="max-w-7xl relative mx-auto pt-24 pb-8 sm:py-12 md:py-20 lg:py-40 px-4 w-full left-0 top-0 z-10 mb-4 sm:mb-6 md:mb-8">
       <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-200 to-slate-400 leading-tight mb-4 sm:mb-6">
         Crafting Digital <br />
         <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">

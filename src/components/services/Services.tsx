@@ -1,8 +1,9 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield, Cloud, Cpu, BarChart, Globe, Smartphone, Palette } from 'lucide-react';
 import { services } from '@/data/service-data';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import { ServicesSection } from './ServicesSection';
 
 const getIcon = (iconName: string) => {
   const icons = {
@@ -18,6 +19,23 @@ const getIcon = (iconName: string) => {
 };
 
 export default function Services() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Show new ServicesSection on mobile, original on desktop
+  if (isMobile) {
+    return <ServicesSection />;
+  }
+
   return (
     <section id="services" className="relative min-h-screen overflow-hidden">
       <ContainerScroll
