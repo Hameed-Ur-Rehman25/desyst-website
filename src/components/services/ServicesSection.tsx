@@ -129,7 +129,7 @@ export function ServicesSection() {
         })}
       </div>
 
-      <div className="h-32 md:h-48" />
+      <div className="h-16 md:h-24" />
     </div>
   )
 }

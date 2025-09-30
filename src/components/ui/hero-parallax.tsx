@@ -89,6 +89,23 @@ export const HeroParallax = ({
         }}
         className="relative z-10 px-4 md:px-0 mt-8 sm:mt-12 md:mt-16 lg:mt-20"
       >
+        {/* Projects Heading */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex items-center space-x-2 rounded-full bg-white/5 px-4 py-1.5 ring-1 ring-white/10 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+              <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Our Projects
+              </span>
+            </div>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-purple-200 to-fuchsia-300 bg-clip-text text-transparent mb-3">
+            Featured Work
+          </h2>
+          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
+            Explore our portfolio of innovative solutions and successful projects
+          </p>
+        </div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-6 sm:mb-8 md:mb-12 lg:mb-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {firstRow.map((product) => (
             <ProductCard
@@ -99,7 +116,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-6 sm:mb-8 md:mb-12 lg:mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+        <motion.div className="hidden md:flex flex-row mb-6 sm:mb-8 md:mb-12 lg:mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
