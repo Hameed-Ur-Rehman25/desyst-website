@@ -69,7 +69,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className={`h-[200vh] md:h-[300vh] py-20 md:py-40 overflow-hidden antialiased relative flex flex-col self-auto bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] ${
+      className={`${isMobile ? 'h-auto min-h-screen' : 'h-[200vh] md:h-[300vh]'} py-8 sm:py-12 md:py-20 lg:py-40 overflow-hidden antialiased relative flex flex-col self-auto bg-gradient-to-br from-[#0A0118] via-[#1A0B2E] to-[#1F1147] ${
         isMobile ? '' : '[perspective:1000px] [transform-style:preserve-3d]'
       }`}
     >
@@ -89,7 +89,7 @@ export const HeroParallax = ({
         }}
         className="relative z-10 px-4 md:px-0"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-12 md:mb-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-6 sm:mb-8 md:mb-12 lg:mb-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -99,7 +99,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-12 md:mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+        <motion.div className="flex flex-row mb-6 sm:mb-8 md:mb-12 lg:mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -126,40 +126,40 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-12 md:py-40 px-4 w-full left-0 top-0 z-10">
+    <div className="max-w-7xl relative mx-auto py-8 sm:py-12 md:py-20 lg:py-40 px-4 w-full left-0 top-0 z-10">
       {/* Brand badge */}
       <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-lg rounded-full px-4 py-2 border border-white/10 mb-8">
         <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse"></span>
         <span className="text-sm font-medium bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Portfolio Showcase</span>
       </div>
       
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-200 to-slate-400 leading-tight mb-6">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white via-slate-200 to-slate-400 leading-tight mb-4 sm:mb-6">
         Crafting Digital <br />
         <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
           Experiences
         </span>
       </h1>
       
-      <p className="max-w-2xl text-base md:text-xl text-slate-300/90 leading-relaxed">
+      <p className="max-w-2xl text-sm sm:text-base md:text-xl text-slate-300/90 leading-relaxed mb-6 sm:mb-8">
         From innovative web applications to cutting-edge AI solutions, explore our portfolio of 
         <span className="text-violet-400 font-medium"> transformative projects</span> that push the boundaries of technology.
       </p>
       
       {/* Stats */}
-      <div className="flex items-center gap-8 mt-8">
+      <div className="flex items-center gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8">
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">100+</div>
-          <div className="text-sm text-slate-400">Projects Delivered</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">100+</div>
+          <div className="text-xs sm:text-sm text-slate-400">Projects Delivered</div>
         </div>
-        <div className="h-12 w-px bg-gradient-to-b from-violet-500/20 via-fuchsia-500/30 to-indigo-500/20"></div>
+        <div className="h-8 sm:h-12 w-px bg-gradient-to-b from-violet-500/20 via-fuchsia-500/30 to-indigo-500/20"></div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">50+</div>
-          <div className="text-sm text-slate-400">Happy Clients</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">50+</div>
+          <div className="text-xs sm:text-sm text-slate-400">Happy Clients</div>
         </div>
-        <div className="h-12 w-px bg-gradient-to-b from-violet-500/20 via-fuchsia-500/30 to-indigo-500/20"></div>
+        <div className="h-8 sm:h-12 w-px bg-gradient-to-b from-violet-500/20 via-fuchsia-500/30 to-indigo-500/20"></div>
         <div className="text-center">
-          <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">24/7</div>
-          <div className="text-sm text-slate-400">Support</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">24/7</div>
+          <div className="text-xs sm:text-sm text-slate-400">Support</div>
         </div>
       </div>
     </div>
@@ -188,7 +188,7 @@ export const ProductCard = ({
         y: isMobile ? 0 : -20,
       }}
       key={product.title}
-      className="group/product h-72 w-80 md:h-96 md:w-[30rem] relative shrink-0"
+      className="group/product h-64 w-72 sm:h-72 sm:w-80 md:h-96 md:w-[30rem] relative shrink-0"
     >
       <a
         href={product.link}
