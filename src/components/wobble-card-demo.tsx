@@ -14,10 +14,6 @@ export default function WobbleCardDemo() {
       <div className="relative z-10 px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 rounded-full bg-white/5 px-4 py-1 ring-1 ring-white/10 backdrop-blur-sm mb-8">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            <span className="text-sm font-medium text-blue-400">AI Solutions</span>
-          </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Intelligent Innovation
           </h2>
