@@ -7,11 +7,12 @@ import Link from 'next/link';
 import { services } from '@/data/service-data';
 
 interface ProjectsPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default function ProjectsPage({ searchParams }: ProjectsPageProps) {
-  const serviceFilter = typeof searchParams?.service === 'string' ? searchParams.service : null;
+export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
+  const params = await searchParams;
+  const serviceFilter = typeof params?.service === 'string' ? params.service : null;
   
   // Get the service title for display
   const selectedService = serviceFilter 
