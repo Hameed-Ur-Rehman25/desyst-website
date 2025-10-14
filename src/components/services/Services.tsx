@@ -4,6 +4,7 @@ import { Shield, Cloud, Cpu, BarChart, Globe, Smartphone, Palette } from 'lucide
 import { services } from '@/data/service-data';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import { ServicesSection } from './ServicesSection';
+import { useRouter } from 'next/navigation';
 
 const getIcon = (iconName: string) => {
   const icons = {
@@ -20,6 +21,7 @@ const getIcon = (iconName: string) => {
 
 export default function Services() {
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -30,6 +32,10 @@ export default function Services() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const handleServiceClick = (serviceId: string) => {
+    router.push(`/projects?service=${serviceId}`);
+  };
 
   // Show new ServicesSection on mobile, original on desktop
   if (isMobile) {
@@ -80,7 +86,8 @@ export default function Services() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="group relative flex flex-col rounded-2xl bg-white/5 backdrop-blur-sm p-4 ring-1 ring-white/10 hover:ring-indigo-500/50 transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-indigo-500/10"
+                onClick={() => handleServiceClick(service.id)}
+                className="group relative flex flex-col rounded-2xl bg-white/5 backdrop-blur-sm p-4 ring-1 ring-white/10 hover:ring-indigo-500/50 transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-indigo-500/10 cursor-pointer"
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 via-violet-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 

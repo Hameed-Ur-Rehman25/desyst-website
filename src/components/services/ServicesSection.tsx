@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from "react"
 import { Code2, Smartphone, Cloud, Brain, Shield, Zap } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const services = [
   {
+    id: "web-development",
     icon: Code2,
     title: "Web Development",
     description:
@@ -12,6 +14,7 @@ const services = [
     color: "from-blue-500 to-cyan-500",
   },
   {
+    id: "app-development",
     icon: Smartphone,
     title: "Mobile Apps",
     description:
@@ -19,6 +22,7 @@ const services = [
     color: "from-purple-500 to-pink-500",
   },
   {
+    id: "cloud-solutions",
     icon: Cloud,
     title: "Cloud Solutions",
     description:
@@ -26,6 +30,7 @@ const services = [
     color: "from-orange-500 to-red-500",
   },
   {
+    id: "ai-automation",
     icon: Brain,
     title: "AI & Machine Learning",
     description:
@@ -33,6 +38,7 @@ const services = [
     color: "from-green-500 to-emerald-500",
   },
   {
+    id: "data-analytics",
     icon: Shield,
     title: "Cybersecurity",
     description:
@@ -40,6 +46,7 @@ const services = [
     color: "from-indigo-500 to-blue-500",
   },
   {
+    id: "ui-ux",
     icon: Zap,
     title: "Performance Optimization",
     description:
@@ -50,6 +57,11 @@ const services = [
 
 export function ServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+
+  const handleServiceClick = (serviceId: string) => {
+    router.push(`/projects?service=${serviceId}`)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,7 +121,10 @@ export function ServicesSection() {
                 marginBottom: index === services.length - 1 ? "0" : "80px",
               }}
             >
-              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-purple-500/20">
+              <div 
+                onClick={() => handleServiceClick(service.id)}
+                className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-purple-500/20 cursor-pointer"
+              >
                 <div className="flex items-start gap-3 sm:gap-4 md:gap-6">
                   <div
                     className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}

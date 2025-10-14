@@ -3,8 +3,21 @@ import Navbar from '@/components/Navbar/Navbar';
 // Make sure the ProjectsGrid component exists at the specified path.
 // If it does not, either create it or update the import path accordingly.
 import ProjectsGrid from '@/components/projects/ProjectsGrid';
+import Link from 'next/link';
+import { services } from '@/data/service-data';
 
-export default function ProjectsPage() {
+interface ProjectsPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function ProjectsPage({ searchParams }: ProjectsPageProps) {
+  const serviceFilter = typeof searchParams?.service === 'string' ? searchParams.service : null;
+  
+  // Get the service title for display
+  const selectedService = serviceFilter 
+    ? services.find(s => s.id === serviceFilter)
+    : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#2a1458] via-[#1F1147] to-[#0f051d] relative overflow-hidden">
       {/* Background Pattern */}
@@ -25,14 +38,34 @@ export default function ProjectsPage() {
       <div className="relative pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Page Header */}
-          <div className="text-center mb-24">
+          <div className="text-center mb-12">
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-700 bg-clip-text text-transparent mb-8">
               Our Projects
             </h1>
+            
+            {/* Filter Indicator */}
+            {selectedService && (
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-6 py-2 ring-1 ring-purple-500/20 backdrop-blur-sm">
+                  <span className="text-sm font-medium text-purple-300">
+                    Showing: {selectedService.title}
+                  </span>
+                </div>
+                <Link 
+                  href="/projects"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                >
+                  <span className="text-sm font-medium text-gray-300">Clear Filter</span>
+                  <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </Link>
+              </div>
+            )}
           </div>
           
           {/* Projects Grid */}
-          <ProjectsGrid />
+          <ProjectsGrid serviceFilter={serviceFilter} />
         </div>
       </div>
     </div>

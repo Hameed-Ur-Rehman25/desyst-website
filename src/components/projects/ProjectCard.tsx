@@ -29,7 +29,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* Project Image */}
       <div className="relative h-56 overflow-hidden">
         <Image
-          src={`/${project.image}`}
+          src={project.image}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"

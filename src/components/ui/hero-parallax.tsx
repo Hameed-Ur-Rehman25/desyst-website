@@ -107,32 +107,32 @@ export const HeroParallax = ({
           </p>
         </div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-6 sm:mb-8 md:mb-12 lg:mb-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
-          {firstRow.map((product) => (
+          {firstRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
               isMobile={isMobile}
-              key={product.title}
+              key={`first-${idx}-${product.title}`}
             />
           ))}
         </motion.div>
         <motion.div className="hidden md:flex flex-row mb-6 sm:mb-8 md:mb-12 lg:mb-20 space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
-          {secondRow.map((product) => (
+          {secondRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
               isMobile={isMobile}
-              key={product.title}
+              key={`second-${idx}-${product.title}`}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 overflow-x-auto md:overflow-x-visible scrollbar-hide">
-          {thirdRow.map((product) => (
+          {thirdRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
               isMobile={isMobile}
-              key={product.title}
+              key={`third-${idx}-${product.title}`}
             />
           ))}
         </motion.div>
@@ -198,7 +198,6 @@ export const ProductCard = ({
       whileHover={{
         y: isMobile ? 0 : -20,
       }}
-      key={product.title}
       className="group/product h-64 w-72 sm:h-72 sm:w-80 md:h-96 md:w-[30rem] relative shrink-0"
     >
       <a
