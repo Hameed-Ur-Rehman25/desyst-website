@@ -27,7 +27,7 @@ export default function WobbleCardDemo() {
           containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-blue-900 to-indigo-800 min-h-[500px] lg:min-h-[300px]"
           className=""
         >
-          <div className="max-w-xs">
+          <div className="max-w-xs pr-4 sm:pr-8 md:pr-0">
             <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               AI-Powered Solutions That Transform Business
             </h2>
@@ -41,7 +41,7 @@ export default function WobbleCardDemo() {
             width={500}
             height={500}
             alt="AI dashboard interface"
-            className="absolute -right-4 lg:-right-[20%] filter grayscale -bottom-10 object-contain rounded-2xl max-w-[300px] lg:max-w-[400px]"
+            className="absolute -right-8 sm:-right-4 lg:-right-[20%] filter grayscale -bottom-10 object-contain rounded-2xl max-w-[250px] sm:max-w-[300px] lg:max-w-[400px]"
           />
         </WobbleCard>
         <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-purple-800 to-indigo-900">
@@ -54,7 +54,7 @@ export default function WobbleCardDemo() {
           </p>
         </WobbleCard>
         <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-gradient-to-r from-slate-800 to-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-          <div className="max-w-sm">
+          <div className="max-w-sm pr-4 sm:pr-8 md:pr-0">
             <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Ready to Harness the Power of AI for Your Business?
             </h2>
@@ -92,7 +92,7 @@ export default function WobbleCardDemo() {
             width={500}
             height={500}
             alt="AI consultation meeting"
-            className="hidden md:block absolute -right-10 md:-right-[30%] lg:-right-[15%] -bottom-10 object-contain rounded-2xl max-w-[300px] lg:max-w-[450px]"
+            className="hidden md:block absolute -right-16 md:-right-[30%] lg:-right-[15%] -bottom-10 object-contain rounded-2xl max-w-[280px] md:max-w-[300px] lg:max-w-[450px]"
           />
         </WobbleCard>
       </div>
